@@ -62,5 +62,5 @@ jobs:
           # 部署到 gh-pages 分支
           BRANCH: gh-pages
           # 部署目录为 npm-ana 的默认输出目录
-          FOLDER: view/assets
+          FOLDER: view
           
