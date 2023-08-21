@@ -42,7 +42,7 @@ jobs:
       runs-on: ubuntu-latest
       needs: init-root
       steps:
-        - run: cd /src/core
+        - run: cd src/core
         - run: npm i
         - run: npm run build
         - run: cd ../
@@ -51,7 +51,7 @@ jobs:
       needs: [init-root,build-core]
       runs-on: ubuntu-latest
       steps:
-        - run: cd /src/view
+        - run: cd src/view
         - run: npm i
         - run: npm run build
         - run: cd ../
