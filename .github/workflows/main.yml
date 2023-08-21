@@ -63,4 +63,4 @@ jobs:
           BRANCH: gh-pages
           # 部署目录为 npm-ana 的默认输出目录
           FOLDER: view
-          BUILD_SCRIPT: ana-cli
+          
