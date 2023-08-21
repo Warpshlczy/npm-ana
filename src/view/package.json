@@ -8,7 +8,7 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
-  "homepage": "https://Warpshlczy.github.io/vite-project",
+  "homepage": "https://Warpshlczy.github.io/npm-ana",
   "dependencies": {
     "@antv/layout": "^0.3.23",
     "@antv/x6": "^2.13.1",
