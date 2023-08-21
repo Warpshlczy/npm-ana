@@ -16,7 +16,6 @@
     "vue": "^3.2.41",
     "zlib": "^1.0.5"
   },
-  "homepage": "https://Warpshlczy.github.io/npm-ana",
   "devDependencies": {
     "@antv/x6-plugin-export": "^2.1.6",
     "@antv/x6-plugin-scroller": "^2.0.10",
