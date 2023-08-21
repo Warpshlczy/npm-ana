@@ -53,10 +53,6 @@ jobs:
           
       - name: Link package
         run: npm link
-        
-      - name: Execute tool
-        run: ana-cli
-
 
       # 查看 workflow 的文档来获取更多信息
       - name: Deploy to GitHub Pages
@@ -67,3 +63,4 @@ jobs:
           BRANCH: gh-pages
           # 部署目录为 npm-ana 的默认输出目录
           FOLDER: ana-build
+          BUILD_SCRIPT: ana-cli
