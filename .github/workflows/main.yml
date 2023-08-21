@@ -37,6 +37,7 @@ jobs:
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm i --legacy-peer-deps
+        working-directory: src/core
 
   build-core:
       runs-on: ubuntu-latest
@@ -45,7 +46,8 @@ jobs:
         - run: |
            npm i
            npm run build
-          working-directory: ./src/core
+           working-directory: ./src/view
+         
 
   build-view:
       needs: [init-root,build-core]
@@ -54,7 +56,7 @@ jobs:
         - run: |
            npm i
            npm run build
-          working-directory: ./src/view
+          
 
   link-package:
         needs: [init-root,build-core,build-view]
