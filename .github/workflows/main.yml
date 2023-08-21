@@ -1,8 +1,10 @@
-name: npmTool
+name: npm-ana-dev
 
 on:
-  # 每当 push 到 master 分支时触发部署
+  # 每当 push 或 pull_request 到 master 分支时触发部署
   push:
+    branches: [master]
+  pull_request:
     branches: [master]
   # 手动触发部署
   workflow_dispatch:
@@ -36,15 +38,16 @@ jobs:
       # 如果缓存没有命中，安装依赖
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm i --legacy-peer-deps
-        
-        
+        run: npm i --legacy-peer-deps  
+
+      # 安装核心依赖并打包
       - name: Core install and build
         run: |
            npm i
            npm run build
         working-directory: ./src/core
-          
+
+      # 安装页面依赖并打包
       - name: View install and build
         run: |
            npm i
@@ -56,6 +59,7 @@ jobs:
         run: npm link
 
       # 查看 workflow 的文档来获取更多信息
+      # 发布静态页面到github pages,访问https:https://warpshlczy.github.io/npm-ana/查看
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
@@ -64,4 +68,4 @@ jobs:
           BRANCH: gh-pages
           # 部署目录为 npm-ana 的默认输出目录
           FOLDER: view
-          
+          BUILD_SCRIPT: ana-cli
