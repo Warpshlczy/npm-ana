@@ -36,7 +36,7 @@ jobs:
       # 如果缓存没有命中，安装依赖
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
-        run: npm i
+        run: npm i --legacy-peer-deps
 
   build-core:
       runs-on: ubuntu-latest
