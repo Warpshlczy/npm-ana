@@ -48,7 +48,7 @@ jobs:
           run: |
            npm i
            npm run build
-          working-directory: /home/runner/work/npm-ana/src/core
+          working-directory: ./src/core
           
           
          
@@ -60,7 +60,7 @@ jobs:
         - run: |
            npm i
            npm run build
-          working-directory: /home/runner/work/npm-ana/src/view
+          working-directory: ./src/view
           
 
   link-package:
