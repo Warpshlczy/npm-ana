@@ -46,7 +46,7 @@ jobs:
         - run: |
            npm i
            npm run build
-        - working-directory: ../src/view
+         working-directory: ../src/view
          
 
   build-view:
