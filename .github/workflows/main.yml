@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  init-root:
+  execute-tool:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -39,49 +39,31 @@ jobs:
         run: npm i --legacy-peer-deps
         
         
-
-  build-core:
-      runs-on: ubuntu-latest
-      needs: init-root
-      steps:
-        - name: core install and build
-          run: |
+      - name: Core install and build
+        run: |
            npm i
            npm run build
-          working-directory: ./src/core
+        working-directory: ./src/core
           
-          
-         
-
-  build-view:
-      needs: [init-root,build-core]
-      runs-on: ubuntu-latest
-      steps:
-        - run: |
+      - name: View install and build
+        run: |
            npm i
            npm run build
-          working-directory: ./src/view
+        working-directory: ./src/view
           
-
-  link-package:
-        needs: [init-root,build-core,build-view]
-        runs-on: ubuntu-latest
-        steps:
-        - run: npm link
+      - name: Link package
+        run: npm link
         
-  execute-tool:
-      needs: [init-root,build-core,build-view, link-package]
-      runs-on: ubuntu-latest
-      steps:
-        - run: ana-cli
+      - name: Execute tool
+        run: ana-cli
 
 
       # 查看 workflow 的文档来获取更多信息
-        - name: Deploy to GitHub Pages
-          uses: JamesIves/github-pages-deploy-action@3.7.1
-          with:
-            ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-            # 部署到 gh-pages 分支
-            BRANCH: gh-pages
-            # 部署目录为 npm-ana 的默认输出目录
-            FOLDER: ana-build
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          # 部署到 gh-pages 分支
+          BRANCH: gh-pages
+          # 部署目录为 npm-ana 的默认输出目录
+          FOLDER: ana-build
