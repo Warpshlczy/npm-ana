@@ -44,7 +44,8 @@ jobs:
       runs-on: ubuntu-latest
       needs: init-root
       steps:
-        - run: |
+        - name: core install and build
+          run: |
            npm i
            npm run build
           working-directory: /src/view
