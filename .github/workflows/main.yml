@@ -37,7 +37,7 @@ jobs:
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm i --legacy-peer-deps
-        working-directory: /src/core
+        
         
 
   build-core:
@@ -48,7 +48,8 @@ jobs:
           run: |
            npm i
            npm run build
-          working-directory: /src/view
+          working-directory: /src/core
+          
           
          
 
@@ -59,7 +60,7 @@ jobs:
         - run: |
            npm i
            npm run build
-          
+          working-directory: /src/view
           
 
   link-package:
