@@ -44,7 +44,7 @@ jobs:
       needs: init-root
       steps:
         - run: |
-           working-directory: /src/core
+          working-directory: /src/core
            npm i
            npm run build
           
@@ -55,7 +55,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - run: |
-           working-directory: /src/view
+          working-directory: /src/view
            npm i
            npm run build
           
