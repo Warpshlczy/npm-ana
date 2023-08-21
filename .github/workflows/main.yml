@@ -45,7 +45,7 @@ jobs:
         - run: |
            npm i
            npm run build
-        - working-directory: src/core
+          working-directory: src/core
 
   build-view:
       needs: [init-root,build-core]
@@ -54,7 +54,7 @@ jobs:
         - run: |
            npm i
            npm run build
-        - working-directory: src/view
+          working-directory: src/view
 
   link-package:
         needs: [init-root,build-core,build-view]
