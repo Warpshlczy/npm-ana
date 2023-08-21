@@ -10,5 +10,5 @@ export default defineConfig({
   build: {
     outDir: "../../view",
   },
-   base: "/"
+   base: "./"
 });
