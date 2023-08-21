@@ -51,6 +51,7 @@ jobs:
            npm run build
         working-directory: ./src/view
           
+      # 建立软连接
       - name: Link package
         run: npm link
 
